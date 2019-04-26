@@ -3,7 +3,7 @@
   <div class="container">
     <h1>{{ title }}!</h1>
     <i
-      (click)="clickHandler()"
+      id='heart'
       class="fa-heart"
       [ngClass]="{ fas: isClicked, far: !isClicked }"
     >
