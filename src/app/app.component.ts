@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
+const util = require('./util/util');
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -8,11 +10,11 @@ import { Component, OnInit } from "@angular/core";
 export class AppComponent implements OnInit {
   title = "likes";
   isClicked: boolean = false;
-  count = 0;
+  count = 2;
 
   ngOnInit() {
     if (this.count === 0) {
-      this.noLikeToggle();
+      util.noLikeToggle();
     }
   }
 
@@ -20,14 +22,14 @@ export class AppComponent implements OnInit {
     this.isClicked = true;
     if (this.isClicked) this.count++;
     else this.count--;
-    this.likeToggle();
+    util.likeToggle();
   }
 
   noLikeHandler() {
     this.isClicked = false;
     if (!this.isClicked) this.count--;
     else this.count++;
-    this.noLikeToggle();
+    util.noLikeToggle();
   }
 
   buttonToggle(btnId: string, bool: boolean) {
