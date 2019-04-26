@@ -10,11 +10,12 @@ export class CounterService {
   constructor(private http: Http) {}
   getCounter() {
     return this.http
-      .get("https://likes-b1d27.firebaseio.com/counter/data.json").
+      .get("https://likes-b1d27.firebaseio.com/counter/data.json").subscribe(
       (response: Response) => {
         const data = response.json();
+        console.log(data);
         return data;
-      })
+      });
       // .map(
       //   (response: Response) => {
       //   const number = response.json();

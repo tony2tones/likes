@@ -11,19 +11,15 @@ const util = require("./util/util");
 export class AppComponent implements OnInit {
   title = "likes";
   isClicked: boolean = false;
-  count:number;
+  count: number;
 
   constructor(private counterService: CounterService) {}
 
   ngOnInit() {
-    this.counterService
-    .getCounter().subscribe(
-      (response:number) => {
-        this.count = response;
-        console.log(this.count, ' ',response)
-      }
-    )
-    
+    this.counterService.getCounter().subscribe((response: number) => {
+      this.count = response;
+      console.log(this.count, " ", response);
+    });
   }
 
   likeHandler() {
@@ -39,18 +35,4 @@ export class AppComponent implements OnInit {
     else this.count++;
     util.noLikeToggle();
   }
-
-  // buttonToggle(btnId: string, bool: boolean) {
-  //   const element = document.getElementById(btnId);
-  //   (<HTMLInputElement>element).disabled = bool;
-  // }
-
-  // likeToggle() {
-  //   this.buttonToggle("like", true);
-  //   this.buttonToggle("noLike", false);
-  // }
-  // noLikeToggle() {
-  //   this.buttonToggle("like", false);
-  //   this.buttonToggle("noLike", true);
-  // }
 }
