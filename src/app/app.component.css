@@ -1,9 +1,19 @@
 .fa-heart {
+  padding: 10px;
   font-size: 40px;
   color: deeppink;
 }
 
+.fa-heart:hover {
+  cursor: pointer;
+}
+
 .container {
-  height: 10em;
-  position: relative;
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin: -70px 0 0 -170px;
 }
