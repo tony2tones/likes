@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { CounterService } from "./counter/counter.service";
 
-const util = require('./util/util');
+const util = require("./util/util");
 
 @Component({
   selector: "app-root",
@@ -10,12 +11,19 @@ const util = require('./util/util');
 export class AppComponent implements OnInit {
   title = "likes";
   isClicked: boolean = false;
-  count = 2;
+  count:number;
+
+  constructor(private counterService: CounterService) {}
 
   ngOnInit() {
-    if (this.count === 0) {
-      util.noLikeToggle();
-    }
+    this.counterService
+    .getCounter().subscribe(
+      (response:number) => {
+        this.count = response;
+        console.log(this.count, ' ',response)
+      }
+    )
+    
   }
 
   likeHandler() {
@@ -32,17 +40,17 @@ export class AppComponent implements OnInit {
     util.noLikeToggle();
   }
 
-  buttonToggle(btnId: string, bool: boolean) {
-    const element = document.getElementById(btnId);
-    (<HTMLInputElement>element).disabled = bool;
-  }
+  // buttonToggle(btnId: string, bool: boolean) {
+  //   const element = document.getElementById(btnId);
+  //   (<HTMLInputElement>element).disabled = bool;
+  // }
 
-  likeToggle() {
-    this.buttonToggle("like", true);
-    this.buttonToggle("noLike", false);
-  }
-  noLikeToggle() {
-    this.buttonToggle("like", false);
-    this.buttonToggle("noLike", true);
-  }
+  // likeToggle() {
+  //   this.buttonToggle("like", true);
+  //   this.buttonToggle("noLike", false);
+  // }
+  // noLikeToggle() {
+  //   this.buttonToggle("like", false);
+  //   this.buttonToggle("noLike", true);
+  // }
 }
