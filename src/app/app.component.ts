@@ -15,4 +15,16 @@ export class AppComponent {
     if (this.isClicked) this.count++;
     else this.count--;
   }
+
+  likeHandler() {
+    this.isClicked = !this.isClicked;
+    if (this.isClicked) this.count++;
+    else this.count--;
+  }
+
+  noLikeHandler() {
+    this.isClicked = !this.isClicked;
+    if (this.isClicked) this.count--;
+    else this.count++;
+  }
 }
