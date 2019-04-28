@@ -10,17 +10,18 @@ export class CounterService {
   constructor(private http: Http) {}
   getCounter() {
     return this.http
-      .get("https://likes-b1d27.firebaseio.com/counter/data.json").subscribe(
-      (response: Response) => {
-        const data = response.json();
-        console.log(data);
-        return data;
-      });
+      .get("https://likes-b1d27.firebaseio.com/data.json")
+      };
       // .map(
       //   (response: Response) => {
       //   const number = response.json();
       //   console.log('this is the current count ',number);
       //   return number;
       // });
-  }
+    
+      postCounter(counter:number) {
+       return this.http.put("https://likes-b1d27.firebaseio.com/data.json", counter);
+
+      }
+  
 }

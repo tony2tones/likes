@@ -16,10 +16,16 @@ export class AppComponent implements OnInit {
   constructor(private counterService: CounterService) {}
 
   ngOnInit() {
-    this.counterService.getCounter().subscribe((response: number) => {
-      this.count = response;
-      console.log(this.count, " ", response);
-    });
+    this.getCount()
+  }
+
+  setCount(count:number) {
+    this.counterService
+      .postCounter(this.count)
+      .subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      );
   }
 
   likeHandler() {
@@ -34,5 +40,15 @@ export class AppComponent implements OnInit {
     if (!this.isClicked) this.count--;
     else this.count++;
     util.noLikeToggle();
+  }
+
+  getCount() {
+    this.counterService.getCounter().subscribe(
+      response => {
+        const data = response.json();
+        this.count = data;
+      },
+      error => console.log(error)
+    );
   }
 }
