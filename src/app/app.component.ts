@@ -19,15 +19,6 @@ export class AppComponent implements OnInit {
     this.getCount()
   }
 
-  setCount(count:number) {
-    this.counterService
-      .postCounter(this.count)
-      .subscribe(
-        response => console.log(response),
-        error => console.log(error)
-      );
-  }
-
   likeHandler() {
     this.isClicked = true;
     if (this.isClicked) this.count++;
