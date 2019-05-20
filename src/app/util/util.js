@@ -1,9 +1,8 @@
 var likeToggle = () => {
-  buttonToggle("like", true);
   buttonToggle("noLike", false);
 };
 var noLikeToggle = () => {
-  buttonToggle("like", false);
+  // buttonToggle("like", false);
   buttonToggle("noLike", true);
 };
 

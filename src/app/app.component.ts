@@ -16,21 +16,25 @@ export class AppComponent implements OnInit {
   constructor(private counterService: CounterService) {}
 
   ngOnInit() {
-    this.getCount()
+    this.getCount();
   }
 
   likeHandler() {
     this.isClicked = true;
     if (this.isClicked) this.count++;
     else this.count--;
-    util.likeToggle();
+    this.enableButton(this.count);
   }
 
   noLikeHandler() {
     this.isClicked = false;
-    if (!this.isClicked) this.count--;
-    else this.count++;
-    util.noLikeToggle();
+    if (this.count === 0) this.enableButton(this.count);
+    else this.count--;
+  }
+
+  enableButton(counter: number) {
+    if (counter === 0) util.noLikeToggle();
+    else util.likeToggle();
   }
 
   getCount() {
