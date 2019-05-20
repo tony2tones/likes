@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { CounterService } from "./counter/counter.service";
-import { ConstantPool } from "@angular/compiler";
-import { Compiler_compileModuleSync__POST_R3__ } from "@angular/core/src/linker/compiler";
 
 const util = require("./util/util");
 
