@@ -8,7 +8,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Toast Messages
 
-The likes and no likes button will trigger a Toast message (using ngx-toastr found at https://www.npmjs.com/package/ngx-toastr) on the top right hand side of the screen, various switch cases have been added which 
+The likes and no likes button will trigger a Toast message 
+(using ngx-toastr found at https://www.npmjs.com/package/ngx-toastr) on the top right hand side of the screen,
+ various switch cases have been added which 
 keeps track of the number of clicks a user makes.
 
 ## Build
