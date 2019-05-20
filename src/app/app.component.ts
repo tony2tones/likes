@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CounterService } from "./services/counter.service";
-import { ToastrService } from "ngx-toastr";
+import { ToastMessageService } from './services/toast-message.service';
 
 const util = require("./util/util");
 
@@ -15,10 +15,7 @@ export class AppComponent implements OnInit {
   count: number;
   countClicks: number = 0;
 
-  constructor(
-    private counterService: CounterService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private counterService: CounterService, private toast: ToastMessageService) {}
 
   ngOnInit() {
     this.getCount();
@@ -29,7 +26,7 @@ export class AppComponent implements OnInit {
     if (this.isClicked) this.count++;
     this.updateCounter();
     let clicks = this.countClicks++;
-    this.showSuccess(clicks);
+    this.toast.showSuccess(clicks);
     util.buttonToggle("noLike", false);
   }
 
@@ -38,34 +35,11 @@ export class AppComponent implements OnInit {
     if (this.count === 0) util.buttonToggle("noLike", true);
     else this.count--;
     this.updateCounter();
+    let clicks = this.countClicks--;
+    this.toast.showFailure(clicks);
   }
 
-  showSuccess(counter: number) {
-    let text: string;
-    switch (counter) {
-      case 1:
-        text = "Thanks a bundle";
-        break;
-      case 5:
-        text = "Thank you, you are too kind";
-        break;
-      case 10:
-        text = "You really should't have!";
-        break;
-      case 12:
-        text = "This is too much now stop it";
-        break;
-      case 30:
-        text = "I had no idea you were going to be clicking the like button so much";
-        break;
-        case 50:
-        text = "Congrats you've reached all the switch cases i've bothered to cater for, 50 clickers";
-        break;
-      default:
-        text = "Thank you very much";
-    }
-    this.toastr.success(text, "Notification");
-  }
+  
 
   getCount() {
     this.counterService.getCounter().subscribe(response => {
