@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CounterService } from "./counter/counter.service";
+import { CounterService } from "./services/counter.service";
 import { ToastrService } from "ngx-toastr";
 
 const util = require("./util/util");
@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
     this.isClicked = true;
     if (this.isClicked) this.count++;
     this.updateCounter();
-    let toastie = this.countClicks++;
-    this.showSuccess(toastie);
+    let clicks = this.countClicks++;
+    this.showSuccess(clicks);
     util.buttonToggle("noLike", false);
   }
 
