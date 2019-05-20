@@ -50,12 +50,17 @@ export class AppComponent implements OnInit {
         text = "Thank you, you are too kind";
         break;
       case 10:
-        text = "so is this what you always do?";
+        text = "You really should't have!";
         break;
       case 12:
         text = "This is too much now stop it";
-      case 22:
+        break;
+      case 30:
         text = "I had no idea you were going to be clicking the like button so much";
+        break;
+        case 50:
+        text = "Congrats you've reached all the switch cases i've bothered to cater for, 50 clickers";
+        break;
       default:
         text = "Thank you very much";
     }
