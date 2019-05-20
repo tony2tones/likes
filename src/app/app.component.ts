@@ -22,19 +22,13 @@ export class AppComponent implements OnInit {
   likeHandler() {
     this.isClicked = true;
     if (this.isClicked) this.count++;
-    else this.count--;
-    this.enableButton(this.count);
+    util.buttonToggle("noLike", false);
   }
 
   noLikeHandler() {
     this.isClicked = false;
-    if (this.count === 0) this.enableButton(this.count);
+    if (this.count === 0) util.buttonToggle("noLike", true);
     else this.count--;
-  }
-
-  enableButton(counter: number) {
-    if (counter === 0) util.noLikeToggle();
-    else util.likeToggle();
   }
 
   getCount() {
