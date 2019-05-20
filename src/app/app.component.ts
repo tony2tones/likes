@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CounterService } from "./counter/counter.service";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 
 const util = require("./util/util");
 
@@ -13,8 +13,12 @@ export class AppComponent implements OnInit {
   title = "likes";
   isClicked: boolean = false;
   count: number;
+  countClicks: number = 0;
 
-  constructor(private counterService: CounterService, private toastr: ToastrService) {}
+  constructor(
+    private counterService: CounterService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.getCount();
@@ -24,7 +28,8 @@ export class AppComponent implements OnInit {
     this.isClicked = true;
     if (this.isClicked) this.count++;
     this.updateCounter();
-    this.showSuccess();
+    let toastie = this.countClicks++;
+    this.showSuccess(toastie);
     util.buttonToggle("noLike", false);
   }
 
@@ -35,25 +40,36 @@ export class AppComponent implements OnInit {
     this.updateCounter();
   }
 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
+  showSuccess(counter: number) {
+    let text: string;
+    switch (counter) {
+      case 1:
+        text = "Thanks a bundle";
+        break;
+      case 5:
+        text = "Thank you, you are too kind";
+        break;
+      case 10:
+        text = "so is this what you always do?";
+        break;
+      case 12:
+        text = "This is too much now stop it";
+      case 22:
+        text = "I had no idea you were going to be clicking the like button so much";
+      default:
+        text = "Thank you very much";
+    }
+    this.toastr.success(text, "Notification");
   }
 
   getCount() {
-    this.counterService.getCounter().subscribe(
-      response => {
-        const data = response.json();
-        this.count = data;
-      },
-      error => console.log(error)
-    );
+    this.counterService.getCounter().subscribe(response => {
+      const data = response.json();
+      this.count = data;
+    });
   }
 
   updateCounter() {
-    this.counterService
-      .postCounter(this.count)
-      .subscribe(
-        error => console.log(error)
-      );
+    this.counterService.postCounter(this.count).subscribe();
   }
 }
