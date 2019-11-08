@@ -25,6 +25,7 @@
   }
 }
 
+/* Desktop view */
 @media handheld, screen and (min-width: 743px) {
   .fa-heart {
     padding: 10px;
