@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ToastMessageService {
-
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService) {}
 
   showSuccess(counter: number) {
     let text: string;
@@ -22,6 +21,21 @@ export class ToastMessageService {
         break;
       case 12:
         text = "This is too much now stop it";
+        break;
+      case 14:
+        text = "I am overwhelmed by your clickiness";
+        break;
+        case 16:
+        text = "You may have a click problem";
+        break;
+        case 17:
+        text = "Go on give it another click!";
+        break;
+        case 20:
+        text = "Go on give it another click!";
+        break;
+        case 22:
+        text = "Go on give it another click!";
         break;
       case 30:
         text =
@@ -49,10 +63,25 @@ export class ToastMessageService {
       case -10:
         text = "You really don't like this component";
         break;
-      case -12:
+        case -14:
+        text = "You are a very negative person";
+        break;
+        case -17:
+        text = "You are STILL pretty negative";
+        break;
+        case -20:
+        text = "You are making me sad now :(";
+        break;
+        case -25:
+        text = "FIINE!!!";
+        break;
+        case -30:
+        text = "I have nothing more to say";
+        break;
+      case -31:
         text = "I like to think that you have made your point now";
         break;
-      case -30:
+      case -40:
         text =
           "I had no idea you were going to be clicking the no likes button so much";
         break;
@@ -65,5 +94,4 @@ export class ToastMessageService {
     }
     this.toastr.error(text, "Notification");
   }
-
 }
