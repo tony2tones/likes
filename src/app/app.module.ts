@@ -6,10 +6,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { CounterService } from './services/counter.service';
 import { HttpModule } from '@angular/http';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BodyComponent,
     
   ],
   imports: [

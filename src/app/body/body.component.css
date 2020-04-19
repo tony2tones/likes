@@ -1,0 +1,54 @@
+/* Mobile Styles */
+@media handheld, screen and (max-width: 743px) {
+    .fa-heart {
+      padding: 10px;
+      font-size: 40px;
+      color: deeppink;
+    }
+  
+    .count {
+      font-size: 35px;
+    }
+  
+    .container {
+      background-color: rgb(255, 255, 255);
+      font-family: "Staatliches", cursive;
+      width: 330px;
+      height: 250px;
+      padding: 20px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      margin: -70px 0 0 -170px;
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 0.5;
+    }
+  }
+  
+  /* Desktop view */
+  @media handheld, screen and (min-width: 743px) {
+    .fa-heart {
+      padding: 10px;
+      font-size: 40px;
+      color: deeppink;
+    }
+  
+    .count {
+      font-size: 35px;
+    }
+  
+    .container {
+      background-color: rgb(255, 255, 255);
+      font-family: "Staatliches", cursive;
+      width: 400px;
+      height: 250px;
+      padding: 20px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      margin: -70px 0 0 -170px;
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 0.5;
+    }
+  }
+  
