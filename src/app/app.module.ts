@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { CounterService } from './services/counter.service';
 import { HttpModule } from '@angular/http';
 import { BodyComponent } from './body/body.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
+    FooterComponent,
     
   ],
   imports: [
