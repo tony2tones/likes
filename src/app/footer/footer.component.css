@@ -1,0 +1,34 @@
+.footer {
+  height: 90px;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.social-icon {
+  padding: 10px;
+  background: black;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+a {
+  color: lightcyan;
+}
+
+.social-icon:hover {
+  color: black;
+  background-color: white;
+}
+.tooltip {
+  display: block;
+}
+
+.container {
+  height: 100vh;
+  background-color: #9fadff;
+}
