@@ -1,21 +1,26 @@
 import { Component, OnInit } from "@angular/core";
 import { CounterService } from "../services/counter.service";
-import { ToastMessageService } from '../services/toast-message.service';
+import { ToastMessageService } from "../services/toast-message.service";
 
 const util = require("../util/util");
 
 @Component({
-  selector: 'app-body',
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css']
+  selector: "app-body",
+  templateUrl: "./body.component.html",
+  styleUrls: ["./body.component.css"],
 })
 export class BodyComponent implements OnInit {
   title = "likes";
   isClicked: boolean = false;
   count: number;
   countClicks: number = 0;
+  clickCounter: number = 3;
+  noClicks: boolean = false;
 
-  constructor(private counterService: CounterService, private toast: ToastMessageService) { }
+  constructor(
+    private counterService: CounterService,
+    private toast: ToastMessageService
+  ) {}
 
   ngOnInit() {
     this.getCount();
@@ -24,7 +29,9 @@ export class BodyComponent implements OnInit {
   likeHandler() {
     this.isClicked = true;
     if (this.isClicked) this.count++;
+    this.clickCounter--;
     this.updateCounter();
+    this.countChecker(this.clickCounter);
     let clicks = this.countClicks++;
     this.toast.showSuccess(clicks);
     util.buttonToggle("noLike", false);
@@ -40,13 +47,20 @@ export class BodyComponent implements OnInit {
   }
 
   getCount() {
-    this.counterService.getCounter().subscribe(response => {
+    this.counterService.getCounter().subscribe((response) => {
       const data = response.json();
       this.count = data;
     });
   }
 
   updateCounter() {
-    this.counterService.postCounter(this.count).subscribe();
+    // this.counterService.postCounter(this.count).subscribe();
+  }
+
+  countChecker(count) {
+    if(count === 0 ) {
+      this.noClicks = true;
+    console.log('you have clicked.', count);
+    } 
   }
 }
