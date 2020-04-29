@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './add-country.component.html',
   styleUrls: ['./add-country.component.css']
 })
-export class AddCountryComponent implements OnInit {
+export class AddCountryComponent  {
+  isClicked:boolean = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  addMyCountry(){
+    this.isClicked = true;
   }
 
 }

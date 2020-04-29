@@ -1,3 +1,9 @@
-<p>
- Want to click for your country?
-</p>
+<div *ngIf="!clicked">
+  <h3>
+    Want to click for your country?
+  </h3>
+  <button class="btn btn-primary" (click)="addMyCountry()">Yes</button>
+</div>
+<div *ngIf="isClicked">
+  <country-selector></country-selector>
+</div>
