@@ -14,8 +14,8 @@ export class CounterService {
       };
   
       postCounter(counter:number) {
-       return this.http.put("https://likes-b1d27.firebaseio.com/counter.json", counter);
-
+      //  return this.http.put("https://likes-b1d27.firebaseio.com/counter.json", counter);
+        return 77;
       }
   
 }
