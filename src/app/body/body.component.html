@@ -20,13 +20,25 @@
         >
           like
         </button>
-        <button id="noLike" class="btn btn-primary float-right" (click)="noLikeHandler()">
+        <button
+          id="noLike"
+          class="btn btn-primary float-right"
+          (click)="noLikeHandler()"
+        >
           no like
         </button>
       </div>
     </div>
-    <div class="container" *ngIf="noClicks">
-      <add-country></add-country>
+    <div class="container" *ngIf="noClicks" >
+    <!-- <ng-template [ngIf]="noClicks"> -->
+    <add-country class="container" *ngIf="!countryAdd" (onfirmationEvent)="countryAdd"></add-country>
+    <!-- <country-selector *ngIf="countryAdd"></country-selector> -->
+    <!-- (confirmationEvent)="addMyCountry($event)" *ngIf="countryAdd" -->
+    <!-- <p>toasty</p> -->
+    <!-- </ng-template> -->
+    </div>
+    <div>
+      <!-- <country-selector></country-selector> -->
     </div>
   </div>
 </div>

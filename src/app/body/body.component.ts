@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ViewChild, OnInit, AfterViewInit } from "@angular/core";
 import { CounterService } from "../services/counter.service";
 import { ToastMessageService } from "../services/toast-message.service";
+import { AddCountryComponent } from '../components/add-country/add-country.component';
 
 const util = require("../util/util");
 
@@ -9,7 +10,10 @@ const util = require("../util/util");
   templateUrl: "./body.component.html",
   styleUrls: ["./body.component.css"],
 })
-export class BodyComponent implements OnInit {
+export class BodyComponent implements OnInit, AfterViewInit {
+  countryAdd: boolean = false;
+  
+  @ViewChild(AddCountryComponent) addCountry;
   title = "likes";
   isClicked: boolean = false;
   count: number;
@@ -24,6 +28,10 @@ export class BodyComponent implements OnInit {
 
   ngOnInit() {
     this.getCount();
+  }
+
+  ngAfterViewInit(){
+this.countryAdd = this.addCountry.countryAdd
   }
 
   likeHandler() {
@@ -63,4 +71,9 @@ export class BodyComponent implements OnInit {
     console.log('you have clicked.', count);
     } 
   }
+
+  testShowHide(countryAdd) {
+    this.countryAdd = countryAdd;
+  }
+
 }

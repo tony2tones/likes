@@ -1,9 +1,28 @@
 <div *ngIf="!clicked">
-  <h3>
-    Want to click for your country?
-  </h3>
-  <button class="btn btn-primary" (click)="addMyCountry()">Yes</button>
-</div>
-<div *ngIf="isClicked">
-  <country-selector></country-selector>
+  <div class="bg">
+    <div style="text-align: center;">
+      <div class="container">
+        <h2>Want to click for your country?</h2>
+        <div class="count">
+          Want to share what country you're from?
+          <p>(if you have done this already you can just select no)</p>
+        </div>
+        <div class="options">
+          <button
+            id="yes"
+            class="btn btn-primary float-left"
+            (click)="addMyCountry(e)"
+          >
+            Testno
+          </button>
+          <button
+            id="noLike"
+            class="btn btn-primary float-right"
+          >
+            no
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

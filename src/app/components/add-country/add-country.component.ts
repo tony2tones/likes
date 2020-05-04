@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'add-country',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-country.component.css']
 })
 export class AddCountryComponent  {
-  isClicked:boolean = false;
+  @Output() confirmationEvent = new EventEmitter<boolean>();
+// will be input for the country flags
+  confirmation:boolean =false;
+  // isClicked:boolean = false;
 
-  addMyCountry(){
-    this.isClicked = true;
+  public addMyCountry($event){
+    this.confirmation = true;
+    this.confirmationEvent.emit(this.confirmation);
   }
 
 }

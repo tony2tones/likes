@@ -17,8 +17,7 @@ import { CountrySelectorComponent } from './components/country-selector/country-
     BodyComponent,
     FooterComponent,
     AddCountryComponent,
-    CountrySelectorComponent,
-    
+    CountrySelectorComponent
   ],
   imports: [
     BrowserModule,

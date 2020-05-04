@@ -10,12 +10,12 @@ export class CounterService {
   constructor(private http: Http) {}
   getCounter() {
     return this.http
-      .get("https://likes-b1d27.firebaseio.com/counter.json")
+      .get("https://likes-b1d27.firebaseio.com/counte.json")
       };
   
       postCounter(counter:number) {
-      //  return this.http.put("https://likes-b1d27.firebaseio.com/counter.json", counter);
-        return 77;
+       return this.http.put("https://likes-b1d27.firebaseio.com/counte.json", counter);
+        // return 77;
       }
   
 }
