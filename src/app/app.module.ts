@@ -21,9 +21,10 @@ import { CountrySelectorComponent } from './components/country-selector/country-
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
+    
     ToastrModule.forRoot()
   ],
-  providers: [CounterService],
+  providers: [CounterService, AddCountryComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

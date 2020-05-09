@@ -1,7 +1,14 @@
-import { Component, ViewChild, OnInit, AfterViewInit, Input } from "@angular/core";
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  AfterViewInit,
+  Input,
+  Output,
+} from "@angular/core";
 import { CounterService } from "../app/services/counter.service";
 import { ToastMessageService } from "../app/services/toast-message.service";
-import { AddCountryComponent } from '../app/components/add-country/add-country.component';
+import { AddCountryComponent } from "../app/components/add-country/add-country.component";
 
 const util = require("./util/util");
 
@@ -11,8 +18,8 @@ const util = require("./util/util");
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  // @Input() countryAdd: boolean = false;
-  
+  @Input() countryAddYes: boolean = false;
+  // @Output() countryAddYes: boolean = false;
   // @ViewChild(AddCountryComponent) addCountry;
   title = "likes";
   isClicked: boolean = false;
@@ -20,6 +27,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   countClicks: number = 0;
   clickCounter: number = 3;
   noClicks: boolean = false;
+  confirmData: any;
 
   constructor(
     private counterService: CounterService,
@@ -30,8 +38,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.getCount();
   }
 
-  ngAfterViewInit(){
-// this.countryAdd = this.addCountry.countryAdd
+  ngAfterViewInit() {
+    // this.countryAddYes = this.confirmData.confimration;
   }
 
   likeHandler() {
@@ -66,14 +74,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   countChecker(count) {
-    if(count === 0 ) {
+    console.log("testtt");
+    if (count === 0) {
       this.noClicks = true;
-    console.log('you have clicked.', count);
-    } 
+      console.log("you have clicked.", count);
+    }
   }
 
   testShowHide() {
-    // this.countryAdd = countryAdd;
+    console.log("Does I get a clieeckeded?");
+    this.countryAddYes = !this.countryAddYes;
   }
-
 }

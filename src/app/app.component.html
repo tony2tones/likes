@@ -29,14 +29,16 @@
           </button>
         </div>
       </div>
-      <!-- <div class="container" *ngIf="noClicks" > -->
+      <!-- <div class="container" *ngIf="noClicks && !countryAddYes" > -->
+        <div class="container" >
       <!-- <ng-template [ngIf]="noClicks"> -->
+      <add-country class="container" [confirmData]="countryAddYes" (clickConfimation)="testShowHide()"></add-country>
       <!-- <add-country class="container" *ngIf="!countryAdd" [confirmationEvent]="countryAdd"></add-country> -->
-      <!-- <country-selector *ngIf="countryAdd"></country-selector> -->
+    </div>
+      <!-- <country-selector *ngIf="countryAddYes"></country-selector> -->
       <!-- (confirmationEvent)="addMyCountry($event)" *ngIf="countryAdd" -->
       <!-- <p>toasty</p> -->
       <!-- </ng-template> -->
-      <!-- </div> -->
       <div>
         <!-- <country-selector></country-selector> -->
       </div>

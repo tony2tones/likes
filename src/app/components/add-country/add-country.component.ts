@@ -1,19 +1,21 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input } from "@angular/core";
 
 @Component({
-  selector: 'add-country',
-  templateUrl: './add-country.component.html',
-  styleUrls: ['./add-country.component.css']
+  selector: "add-country",
+  templateUrl: "./add-country.component.html",
+  styleUrls: ["./add-country.component.css"],
 })
-export class AddCountryComponent  {
-  // @Output() confirmationEvent = new EventEmitter<boolean>();
-// will be input for the country flags
-  confirmation:boolean =false;
+export class AddCountryComponent {
+  @Input() confirmData = new EventEmitter<boolean>();
+   confirmation: boolean = false;
+  // will be input for the country flags
+
   // isClicked:boolean = false;
 
-  public addMyCountry(){
-    // this.confirmation = true;
+  public clickConfimation() {
+    this.confirmation = true;
+    this.confirmData.emit(this.confirmation);
+    console.log("cleeecked");
     // this.confirmationEvent.emit(this.confirmation);
   }
-
 }
