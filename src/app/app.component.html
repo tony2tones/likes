@@ -1,7 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="bg">
-    <div style="text-align: center;">
-      <div class="container">
+  <div style="text-align: center;">
+    <div class="container">
+      <div class="wrapper" *ngIf="!showbanner">
         <h1>{{ title }}!</h1>
         <i
           id="heart"
@@ -29,17 +30,19 @@
           </button>
         </div>
       </div>
-      <!-- <div class="container" *ngIf="noClicks" > -->
-      <!-- <ng-template [ngIf]="noClicks"> -->
-      <!-- <add-country class="container" *ngIf="!countryAdd" [confirmationEvent]="countryAdd"></add-country> -->
-      <!-- <country-selector *ngIf="countryAdd"></country-selector> -->
-      <!-- (confirmationEvent)="addMyCountry($event)" *ngIf="countryAdd" -->
-      <!-- <p>toasty</p> -->
-      <!-- </ng-template> -->
-      <!-- </div> -->
-      <div>
-        <!-- <country-selector></country-selector> -->
-      </div>
+      <add-country (confirmationEvent)="testShowHide($event)" *ngIf="showbanner"></add-country>
+    </div>
+    <!-- <div class="container" *ngIf="noClicks" > -->
+    <!-- <ng-template [ngIf]="noClicks"> -->
+      
+    <!-- <add-country class="container" *ngIf="isClicked" [confirmationEvent]="countryAdd"></add-country> -->
+    <!-- <country-selector *ngIf="countryAdd"></country-selector> -->
+    <!-- (confirmationEvent)="addMyCountry($event)" *ngIf="countryAdd" -->
+    <!-- <p>toasty</p> -->
+    <!-- </ng-template> -->
+    <!-- </div> -->
+    <div>
+      <!-- <country-selector></country-selector> -->
     </div>
   </div>
-  
+</div>

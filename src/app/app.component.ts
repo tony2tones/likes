@@ -1,7 +1,13 @@
-import { Component, ViewChild, OnInit, AfterViewInit, Input } from "@angular/core";
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  AfterViewInit,
+  Input,
+} from "@angular/core";
 import { CounterService } from "../app/services/counter.service";
 import { ToastMessageService } from "../app/services/toast-message.service";
-import { AddCountryComponent } from '../app/components/add-country/add-country.component';
+import { AddCountryComponent } from "../app/components/add-country/add-country.component";
 
 const util = require("./util/util");
 
@@ -12,7 +18,7 @@ const util = require("./util/util");
 })
 export class AppComponent implements OnInit, AfterViewInit {
   // @Input() countryAdd: boolean = false;
-  
+
   // @ViewChild(AddCountryComponent) addCountry;
   title = "likes";
   isClicked: boolean = false;
@@ -20,6 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   countClicks: number = 0;
   clickCounter: number = 3;
   noClicks: boolean = false;
+  showbanner: Boolean = false;
 
   constructor(
     private counterService: CounterService,
@@ -30,16 +37,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.getCount();
   }
 
-  ngAfterViewInit(){
-// this.countryAdd = this.addCountry.countryAdd
+  ngAfterViewInit() {
+    // this.countryAdd = this.addCountry.countryAdd
   }
 
   likeHandler() {
     this.isClicked = true;
     if (this.isClicked) this.count++;
     this.clickCounter--;
+    let counter = this.countClicks;
+    this.countChecker(counter);
     this.updateCounter();
-    this.countChecker(this.clickCounter);
     let clicks = this.countClicks++;
     this.toast.showSuccess(clicks);
     util.buttonToggle("noLike", false);
@@ -66,14 +74,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   countChecker(count) {
-    if(count === 0 ) {
-      this.noClicks = true;
-    console.log('you have clicked.', count);
-    } 
+    // console.log('test num function ', count);
+    if (count > 4) this.showbanner = true;
+    // if (count === 0) {
+    //   console.log('should show');
+    //   this.noClicks = true;}
   }
 
-  testShowHide() {
-    // this.countryAdd = countryAdd;
+  testShowHide($event) {
+    this.showbanner = $event;
+    // console.log('Is this',$event);
   }
-
 }
