@@ -30,7 +30,8 @@
           </button>
         </div>
       </div>
-      <add-country (confirmationEvent)="testShowHide($event)" *ngIf="showbanner"></add-country>
+      <add-country (confirmationEvent)="testShowHide($event)" *ngIf="showbanner && !showAddCountry"></add-country>
+      <country-selector *ngIf="showAddCountry"></country-selector>
     </div>
     <!-- <div class="container" *ngIf="noClicks" > -->
     <!-- <ng-template [ngIf]="noClicks"> -->

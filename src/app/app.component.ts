@@ -7,7 +7,6 @@ import {
 } from "@angular/core";
 import { CounterService } from "../app/services/counter.service";
 import { ToastMessageService } from "../app/services/toast-message.service";
-import { AddCountryComponent } from "../app/components/add-country/add-country.component";
 
 const util = require("./util/util");
 
@@ -27,6 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   clickCounter: number = 3;
   noClicks: boolean = false;
   showbanner: Boolean = false;
+  showAddCountry: Boolean = false;
 
   constructor(
     private counterService: CounterService,
@@ -81,8 +81,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     //   this.noClicks = true;}
   }
 
-  testShowHide($event) {
-    this.showbanner = $event;
+  testShowHide(state) {
+    if (state) this.showAddCountry = true;
+    if (!state) this.showbanner = state;
     // console.log('Is this',$event);
   }
 }
