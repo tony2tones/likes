@@ -1,2 +1,49 @@
-<app-body></app-body>
-<app-footer></app-footer>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="bg">
+  <div style="text-align: center;">
+    <div class="container">
+      <div class="wrapper" *ngIf="!showbanner">
+        <h1>{{ title }}!</h1>
+        <i
+          id="heart"
+          class="fa-heart"
+          [ngClass]="{ fas: isClicked, far: !isClicked }"
+        >
+        </i>
+        <div class="count">
+          {{ count }}
+        </div>
+        <div class="options">
+          <button
+            id="like"
+            class="btn btn-primary float-left"
+            (click)="likeHandler()"
+          >
+            like
+          </button>
+          <button
+            id="noLike"
+            class="btn btn-primary float-right"
+            (click)="noLikeHandler()"
+          >
+            no like
+          </button>
+        </div>
+      </div>
+      <add-country (confirmationEvent)="testShowHide($event)" *ngIf="showbanner && !showAddCountry"></add-country>
+      <country-selector *ngIf="showAddCountry"></country-selector>
+    </div>
+    <!-- <div class="container" *ngIf="noClicks" > -->
+    <!-- <ng-template [ngIf]="noClicks"> -->
+      
+    <!-- <add-country class="container" *ngIf="isClicked" [confirmationEvent]="countryAdd"></add-country> -->
+    <!-- <country-selector *ngIf="countryAdd"></country-selector> -->
+    <!-- (confirmationEvent)="addMyCountry($event)" *ngIf="countryAdd" -->
+    <!-- <p>toasty</p> -->
+    <!-- </ng-template> -->
+    <!-- </div> -->
+    <div>
+      <!-- <country-selector></country-selector> -->
+    </div>
+  </div>
+</div>

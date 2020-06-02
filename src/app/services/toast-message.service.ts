@@ -13,37 +13,37 @@ export class ToastMessageService {
       case 1:
         text = "Thanks a bundle";
         break;
-      case 5:
+      case 2:
         text = "Thank you, you are too kind";
         break;
-      case 10:
+      case 3:
         text = "You really should't have!";
         break;
-      case 12:
+      case 4:
         text = "This is too much now stop it";
         break;
-      case 14:
+      case 5:
         text = "I am overwhelmed by your clickiness";
         break;
-        case 16:
+        case 6:
         text = "You may have a click problem";
         break;
-        case 17:
+        case 7:
         text = "Go on give it another click!";
         break;
-        case 20:
+        case 8:
         text = "Go on give it another click!";
         break;
-        case 22:
+        case 9:
         text = "Go on give it another click!";
         break;
-      case 30:
+      case 10:
         text =
           "I had no idea you were going to be clicking the like button so much";
         break;
-      case 50:
+      case 11:
         text =
-          "Congrats you've reached all the switch cases i've bothered to cater for, 50 clickers";
+          "Congrats you've reached all the switch cases i've bothered to cater for, 11 clickers thanks for the likes";
         break;
       default:
         text = "Thank you very much";
@@ -57,37 +57,37 @@ export class ToastMessageService {
       case -1:
         text = "Whatever";
         break;
-      case -5:
+      case -2:
         text = "Ok sure thats fine";
         break;
-      case -10:
+      case -3:
         text = "You really don't like this component";
         break;
-        case -14:
+        case -4:
         text = "You are a very negative person";
         break;
-        case -17:
+        case -5:
         text = "You are STILL pretty negative";
         break;
-        case -20:
+        case -6:
         text = "You are making me sad now :(";
         break;
-        case -25:
+        case -7:
         text = "FIINE!!!";
         break;
-        case -30:
+        case -8:
         text = "I have nothing more to say";
         break;
-      case -31:
+      case -9:
         text = "I like to think that you have made your point now";
         break;
-      case -40:
+      case -10:
         text =
           "I had no idea you were going to be clicking the no likes button so much";
         break;
-      case -50:
+      case -11:
         text =
-          "Congrats you've reached all the switch cases i've bothered to cater for, -50 clickers";
+          "Congrats you've reached all the switch cases i've bothered to cater for, -50..i mean -11 clickers";
         break;
       default:
         text = "Thank you for your input";
