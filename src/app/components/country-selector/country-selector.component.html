@@ -1,7 +1,10 @@
 <h3>Pick your counntry</h3>
-<button (click)="openDropdown()">Click Me</button>
+
+<button (click)="openDropdown()">Select Country</button>
 <div class="dropdown" *ngIf="show">
-  <ul>
-    <li>Toasty</li>
-  </ul>
+  <div *ngFor="let country of countries">
+    <ul>
+      <li>{{country.code}}: {{ country.name }}</li>
+    </ul>
+  </div>
 </div>

@@ -20,13 +20,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   // @ViewChild(AddCountryComponent) addCountry;
   title = "likes";
-  isClicked: boolean = false;
+  isClicked: boolean = true; // change here
   count: number;
   countClicks: number = 0;
   clickCounter: number = 3;
   noClicks: boolean = false;
   showbanner: Boolean = false;
-  showAddCountry: Boolean = false;
+  showAddCountry: Boolean = true; // change here
 
   constructor(
     private counterService: CounterService,
@@ -81,9 +81,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     //   this.noClicks = true;}
   }
 
-  testShowHide(state) {
-    if (state) this.showAddCountry = true;
-    if (!state) this.showbanner = state;
-    // console.log('Is this',$event);
-  }
+//   testShowHide(state) {
+//     if (state) this.showAddCountry = true;
+//     if (!state) this.showbanner = state;
+//     // console.log('Is this',$event);
+//   }
 }
