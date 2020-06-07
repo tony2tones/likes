@@ -4,7 +4,7 @@
 <div class="dropdown" *ngIf="show">
   <div *ngFor="let country of countries">
     <ul>
-      <li>{{country.code}}: {{ country.name }}</li>
+      <li><span class="flag flag-icon-background flag-icon-{{ country.code }}"></span>{{country.code}}: {{ country.name }}</li>
     </ul>
   </div>
 </div>

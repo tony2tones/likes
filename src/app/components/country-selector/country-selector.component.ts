@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Country } from "../model/country.model";
 
 @Component({
   selector: "country-selector",
@@ -7,14 +8,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CountrySelectorComponent implements OnInit {
   show: boolean = false;
-  countries = [
+  countries: Country[] = [
     {
       name: "South Africa",
-      code: "ZA",
+      code: "za",
     },
     {
       name: "Greece",
-      code: "GR",
+      code: "gr",
     },
   ];
   constructor() {}
