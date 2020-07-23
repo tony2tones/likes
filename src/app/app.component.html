@@ -31,7 +31,7 @@
         </div>
       </div>
       <add-country (confirmationEvent)="testShowHide($event)" *ngIf="showbanner && !showAddCountry"></add-country>
-      <country-selector *ngIf="showAddCountry"></country-selector>
+      <continent-selector *ngIf="showAddCountry"></continent-selector>
     </div>
     <!-- <div class="container" *ngIf="noClicks" > -->
     <!-- <ng-template [ngIf]="noClicks"> -->
@@ -43,7 +43,6 @@
     <!-- </ng-template> -->
     <!-- </div> -->
     <div>
-      <!-- <country-selector></country-selector> -->
     </div>
   </div>
 </div>

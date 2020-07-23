@@ -1,4 +1,4 @@
-export interface Country {
+export interface Continent {
   name: string;
   code: string;
 }
