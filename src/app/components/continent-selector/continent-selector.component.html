@@ -1,26 +1,10 @@
 <h3>Pick your counntry</h3>
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+  <select formControlName="continent" class="form-control" (change)="changeCountry(event)">
+    <option disabled>Select Continent</option>
+    <option>Choose Website</option>
+    <option *ngFor="let continent of continents">{{ continent.name }}</option>
+  </select>
 
+</form>
 <button (click)="openDropdown()">Select Country</button>
-
-<div class="dropdown" *ngIf="show">
-  <div *ngFor="let country of countries">
-    <ul class="list-item">
-      <li ><span class="flag-icon"></span>{{ country.name }}</li>
-    </ul>
-  </div>
-</div>
-
-<select formControlName="website" class="form-control" (change)="changeWebsite($event)">
-  <option disabled>Select Website</option>
-  <option>Choose Website</option>
-  <option *ngFor="let web of websiteList">{{web}}</option>
-</select> 
-<br />
-
-
-<!-- <label for="website">Website:</label>
-            <select formControlName="website" class="form-control" (change)="changeWebsite($event)">
-                <option disabled>Select Website</option>
-                <option>Choose Website</option>
-                <option *ngFor="let web of websiteList">{{web}}</option>
-            </select> -->

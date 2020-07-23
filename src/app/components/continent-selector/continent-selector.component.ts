@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Continent } from "../model/continent.model";
 
 @Component({
@@ -10,7 +10,7 @@ import { Continent } from "../model/continent.model";
 export class ContinentSelectorComponent implements OnInit {
   show: boolean = false;
   reactiveForm: FormGroup;
-  countries: Continent[] = [
+  continents: Continent[] = [
     {
       name: "Africa",
       code: "AF",
@@ -43,13 +43,17 @@ export class ContinentSelectorComponent implements OnInit {
 
 
   ngOnInit() {
-    this.createFormGroup();
+   this.reactiveForm = this.createFormGroup();
   }
 
   createFormGroup() {
     return new FormGroup({
       continent: new FormControl('')
     })
+  }
+
+  changeCountry(event) {
+    console.log('it has been clicked', event);
   }
 
   openDropdown() {
