@@ -56,11 +56,13 @@ export class ContinentSelectorComponent implements OnInit {
     console.log('it has been clicked', event);
   }
 
-  openDropdown() {
-    this.show = !this.show;
-  }
+
+  // openDropdown() {
+  //   this.show = !this.show;
+  // }
 
   onSubmit() {
+    console.log(this.reactiveForm.controls['continent'].value);
   }
 }
 
