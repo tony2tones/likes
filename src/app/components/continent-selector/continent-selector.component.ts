@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Continent } from "../model/continent.model";
+import { Continents } from "../model/continent.model";
+import { CounterService } from 'src/app/services/counter.service';
 
 @Component({
   selector: "continent-selector",
@@ -8,42 +9,22 @@ import { Continent } from "../model/continent.model";
   styleUrls: ["./continent-selector.component.css"],
 })
 export class ContinentSelectorComponent implements OnInit {
+  constructor(private _getContinent: CounterService) { }
   show: boolean = false;
   reactiveForm: FormGroup;
-  continents: Continent[] = [
-    {
-      name: "Africa",
-      code: "AF",
-    },
-    {
-      name: "Europe",
-      code: "EU",
-    },
-    {
-      name: "Asia",
-      code: "AS",
-    },
-    {
-      name: "North America",
-      code: "NA",
-    },
-    {
-      name: "South America",
-      code: "SA",
-    },
-    {
-      name: "Antarctica",
-      code: "AN",
-    },
-    {
-      name: "Oceania",
-      code: "OC",
-    },
-  ];
+  continents: any=[];
+  // continents;
 
 
   ngOnInit() {
-   this.reactiveForm = this.createFormGroup();
+    this._getContinent.getContinents().subscribe(
+      (response) => { 
+        this.continents = response.json();
+        this.continents = Array.of(this.continents);
+      console.log('should work and show continents', this.continents);
+      console.log('should work and show continents', this.continents);
+      });
+    this.reactiveForm = this.createFormGroup();
   }
 
   createFormGroup() {
@@ -55,6 +36,13 @@ export class ContinentSelectorComponent implements OnInit {
   changeCountry(event) {
     console.log('it has been clicked', event);
   }
+
+  objectKeys(obj) {
+    console.log('This is an obj', obj)
+    let test = Object.keys(obj);
+    console.log('This is an obj', test);
+
+}
 
 
   // openDropdown() {

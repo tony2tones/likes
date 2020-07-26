@@ -1,4 +1,6 @@
-export interface Continent {
-  name: string;
-  code: string;
+export interface Continents {
+  continent: {
+    name: "string";
+    code: "string";
+  }
 }
