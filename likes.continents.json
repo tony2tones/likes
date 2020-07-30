@@ -1,33 +1,33 @@
 {
-  "continents": [{
-    "afirca": {
+  "continents": [ 
+      {
       "code": "AF",
       "name": "Africa"
     },
-    "antarctica": {
+    {
       "code": "AN",
       "name": "Antarctica"
     },
-    "asia": {
+    {
       "code": "AS",
       "name": "Asia"
     },
-    "europe": {
+    {
       "code": "EU",
       "name": "Europe"
     },
-    "north_america": {
+    {
       "code": "NA",
       "name": "North America"
     },
-    "oceania": {
+    {
       "code": "OC",
       "name": "Oceania"
     },
-    "south_america": {
+    {
       "code": "SA",
       "name": "South America"
     }
-  }],
+  ],
   "counter": 647
 }
