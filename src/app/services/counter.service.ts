@@ -9,8 +9,34 @@ import "rxjs/Rx";
 export class CounterService {
   constructor(private http: Http) {}
   test = {
-    name: "Africa",
-    code: "AF",
+    afirca: {
+      name: "Africa",
+      code: "AF",
+    },
+    europe: {
+      name: "Europe",
+      code: "EU",
+    },
+    asia: {
+      name: "Asia",
+      code: "AS",
+    },
+    north_america: {
+      name: "North America",
+      code: "NA",
+    },
+    south_america: {
+      name: "South America",
+      code: "SA",
+    },
+    antarctica: {
+      name: "Antarctica",
+      code: "AN",
+    },
+    oceania: {
+      name: "Oceania",
+      code: "OC",
+    }
   }
   getCounter() {
     return this.http
@@ -21,11 +47,11 @@ export class CounterService {
        return this.http.put("https://likes-b1d27.firebaseio.com/counte.json", counter);
         // return 77;
       }
-      getContinent(){
-        // return this.http.get();
+      getContinents(){
+        return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
       }
       putcontinent() {
-        return this.http.put("https://likes-b1d27.firebaseio.com/continen.json", this.test);
+        // return this.http.put("https://likes-b1d27.firebaseio.com/continents.json", this.test);
       }
       
   
