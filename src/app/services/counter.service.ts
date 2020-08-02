@@ -1,13 +1,17 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
+import { Observable } from 'rxjs/Observable';
 
-import "rxjs/Rx";
+import { AngularFirestore } from 'angularfire2/firestore';
+import { defineBase } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: "root"
 })
 export class CounterService {
-  constructor(private http: Http) {}
+  // constructor(private http: Http) {}
+  // New firebase config
+  constructor(private db : AngularFirestore) {}
   test = {
     afirca: {
       name: "Africa",
@@ -38,17 +42,24 @@ export class CounterService {
       code: "OC",
     }
   }
+
+
   getCounter() {
-    return this.http
-      .get("https://likes-b1d27.firebaseio.com/counter.json")
+    return this.db.collection('/items').valueChanges();
+    // return this.http
+    //   .get("https://likes-b1d27.firebaseio.com/counter.json")
+
       };
   
       postCounter(counter:number) {
-       return this.http.put("https://likes-b1d27.firebaseio.com/counter.json", counter);
+      //  return this.http.put("https://likes-b1d27.firebaseio.com/counte.json", counter);
         // return 77;
       }
+      // getContinents(){
+      //   return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
+      // }
       getContinents(){
-        return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
+        // return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
       }
       putcontinent() {
         // return this.http.put("https://likes-b1d27.firebaseio.com/continents.json", this.test);

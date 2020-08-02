@@ -64,8 +64,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   getCount() {
     this.counterService.getCounter().subscribe((response) => {
-      const data = response.json();
-      this.count = data;
+      const data = response;
+      console.log('this is the response ', response);
     });
     // this.counterService.putcontinent().subscribe((response) => {
       // const data = response.json();
