@@ -1,8 +1,14 @@
 <h3>Pick your counntry</h3>
 <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
-  <select formControlName="continent" class="form-control" (change)="changeCountry(event)">
+  <select formControlName="continentSelect" class="form-control" (change)="changeCountry(event)">
     <option disabled>Select Continent</option>
-    <option *ngFor="let continent of continents" [ngValue]="continent"> {{ continent.name }}</option>
+    <option *ngFor="let continent of continents | async" [ngValue]="continent"> {{ continent.name }}</option>
   </select>
-  <button type="submit" class="btn btn-primary">submit</button>
+
+  <div class="selected-country">
+    {{ continentSelect }}
+  </div>
+  <div class="btn-footer">
+    <button type="submit" class="btn btn-primary" disabled="!reactiveForm.valid">submit</button>
+  </div>
 </form>
