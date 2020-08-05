@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 import { CounterService } from "../app/services/counter.service";
 import { ToastMessageService } from "../app/services/toast-message.service";
+import { Counter } from './components/model/data.models';
 
 const util = require("./util/util");
 
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = "likes";
   isClicked: boolean = false; // change here
   count: number;
+  countDoc;
   countClicks: number = 0;
   clickCounter: number = 3;
   noClicks: boolean = false;
@@ -63,20 +65,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   getCount() {
-    this.counterService.getCounter().subscribe((response) => {
-      const data = response.json();
-      this.count = data;
+    this.counterService.getCounter().subscribe((response: Counter) => {
+      this.count = response.count;
+      console.log('the response number', this.count);
     });
-    // this.counterService.putcontinent().subscribe((response) => {
-      // const data = response.json();
-      // this.count = data;
-      // console.log('the response ', response);
-    // });
+  }
+
+  otherGetCount() {
+    this.counterService.getContinents().subscribe((res) => console.log('stuff ', res));
   }
 
   updateCounter() {
     // this.counterService.postCounter(this.count).subscribe();
   }
+  update(sName: number) {
+    let tmp: Counter = { count: sName };
+    this.countDoc.update(tmp);
+  }
+
 
   countChecker(count) {
     // console.log('test num function ', count);

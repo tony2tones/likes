@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
 
-import "rxjs/Rx";
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Counter } from '../components/model/data.models';
 
 @Injectable({
   providedIn: "root"
 })
 export class CounterService {
-  constructor(private http: Http) {}
+  constructor(private firestore: AngularFirestore ) {}
+  // this.afAuth.auth.signInAnonymously();
+  // this._db = firestore;
   test = {
     afirca: {
       name: "Africa",
@@ -38,21 +40,42 @@ export class CounterService {
       code: "OC",
     }
   }
+
+  counterDoc: any;
+
   getCounter() {
-    return this.http
-      .get("https://likes-b1d27.firebaseio.com/counter.json")
-      };
+    this.counterDoc = this.firestore.doc<Counter>('counter/1');
+    return this.counterDoc = this.counterDoc.valueChanges();
+}
   
-      postCounter(counter:number) {
-       return this.http.put("https://likes-b1d27.firebaseio.com/counter.json", counter);
+      putCountinents(counter:number) {
+        this.firestore.doc('counter/').update(counter);
         // return 77;
       }
       getContinents(){
-        return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
+        return this.firestore.collection('counter').snapshotChanges();        
+        // return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
       }
-      putcontinent() {
+      createContinent(newContinent) {
+        return this.firestore.collection('Students').add(newContinent);
         // return this.http.put("https://likes-b1d27.firebaseio.com/continents.json", this.test);
       }
-      
   
 }
+
+
+// create_NewStudent(record) {
+      //   return this.firestore.collection('Students').add(record);
+      // }
+    
+      // read_Students() {
+      //   return this.firestore.collection('Students').snapshotChanges();
+      // }
+    
+      // update_Student(recordID,record){
+      //   this.firestore.doc('Students/' + recordID).update(record);
+      // }
+    
+      // delete_Student(record_id) {
+      //   this.firestore.doc('Students/' + record_id).delete();
+      // }
