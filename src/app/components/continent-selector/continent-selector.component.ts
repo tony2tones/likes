@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Continent } from "../model/continent.model";
 // import { Continents } from '../model/continents.data';
 
@@ -14,7 +13,6 @@ export class ContinentSelectorComponent implements OnInit {
   constructor(private continentService: CounterService) {
   }
   show: boolean = false;
-  // reactiveForm: FormGroup;
   continentSelect: any;
   continentsData = [
     new Continent('Africa', 'AF'),
@@ -31,18 +29,18 @@ export class ContinentSelectorComponent implements OnInit {
 
   ngOnInit() {
     // this.getContinents();
-    // this.reactiveForm = this.createFormGroup();
   }
 
-  createFormGroup() {
-    return new FormGroup({
-      continent: new FormControl('')
-    })
-  }
+  // createFormGroup() {
+  //   return new FormGroup({
+  //     continent: new FormControl('')
+  //   })
+  // }
 
   changeCountry(event) {
-    console.log('it has been clicked', event);
     this.continentSelect = event;
+    console.log('it has been clicked', event);
+    console.log('it has been clicked', this.continentSelect);
   }
 
   // getContinents() {
