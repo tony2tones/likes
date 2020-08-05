@@ -26,6 +26,7 @@ export class ContinentSelectorComponent implements OnInit {
   continents:any[] = this.continentsData;
   continent: string;
   code: string;
+  tester:string;
 
   ngOnInit() {
     // this.getContinents();

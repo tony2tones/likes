@@ -1,9 +1,9 @@
 <h3>Pick your counntry</h3>
-  <select class="form-control" (change)="changeCountry(event)">
+  <select class="form-control" (change)="changeCountry(event)" [(ngModel)]="tester" >
     <option disabled>Select Continent</option>
     <option *ngFor="let continent of continents" [ngValue]="continent"> {{ continent.name }}</option>
   </select>
-  {{ continent | json }}
+  {{ tester | json }}
   <div class="selected-country">
     {{ continentSelect | json }}
   </div>
