@@ -14,7 +14,7 @@ export class ContinentSelectorComponent implements OnInit {
   constructor(private continentService: CounterService) {
   }
   show: boolean = false;
-  reactiveForm: FormGroup;
+  // reactiveForm: FormGroup;
   continentSelect: any;
   continentsData = [
     new Continent('Africa', 'AF'),
@@ -26,10 +26,12 @@ export class ContinentSelectorComponent implements OnInit {
     new Continent('Oceania', 'OC'),
   ]
   continents:any[] = this.continentsData;
+  continent: string;
+  code: string;
 
   ngOnInit() {
     // this.getContinents();
-    this.reactiveForm = this.createFormGroup();
+    // this.reactiveForm = this.createFormGroup();
   }
 
   createFormGroup() {
@@ -52,8 +54,21 @@ export class ContinentSelectorComponent implements OnInit {
   //     });
   // }
 
+  CreateRecord() {
+    let record = {};
+    record['Name'] = this.continent;
+    record['Code'] = this.code;
+    this.continentService.createContinent(record).then(resp => {
+      this.continent = "";
+      this.code = "";
+      console.log(resp);
+    })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   onSubmit() {
-    console.log(this.reactiveForm.controls['continent'].value);
+    console.log(this.continent, this.code);
   }
 }
 
