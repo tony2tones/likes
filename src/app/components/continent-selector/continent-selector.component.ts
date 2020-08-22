@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Continent } from "../model/continent.model";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Continent, ContinentsModel } from "../model/continent.model";
 // import { Continents } from '../model/continents.data';
 
 import { CounterService } from 'src/app/services/counter.service';
@@ -23,13 +23,15 @@ export class ContinentSelectorComponent implements OnInit {
     new Continent('Antarctica', 'AN'),
     new Continent('Oceania', 'OC'),
   ]
-  continents:any[] = this.continentsData;
-  continent: string;
+  continents: any[] = this.continentsData;
+  continent: Continent;
   code: string;
   tester:string;
 
+  @ViewChild('myDropDownList') myDropDownList: ElementRef;
+
   ngOnInit() {
-    // this.getContinents();
+    this.getContinents();
   }
 
   // createFormGroup() {
@@ -42,9 +44,13 @@ export class ContinentSelectorComponent implements OnInit {
     this.continentSelect = event;
     console.log('it has been clicked', event);
     console.log('it has been clicked', this.continentSelect);
+    this.onRowClick();
   }
 
-  // getContinents() {
+  onRowClick() {
+    console.log('it has been clicked', this.continentSelect);
+
+  }
   //   this.continentService.getContinents().subscribe(
   //     (response) => {
   //       this.continents = response.json();
@@ -52,19 +58,23 @@ export class ContinentSelectorComponent implements OnInit {
   //       console.log('this should be a continentsss 2 of em', this.continents);
   //     });
   // }
+  getContinents(){
+    this.continentService.getContinents().subscribe(data => console.log('The hooked', data));
+  }
 
-  CreateRecord() {
+  addRecord() {
     let record = {};
-    record['Name'] = this.continent;
-    record['Code'] = this.code;
-    this.continentService.createContinent(record).then(resp => {
-      this.continent = "";
-      this.code = "";
-      console.log(resp);
-    })
-      .catch(error => {
-        console.log(error);
-      });
+    // record['Name'] = this.continent.name;
+    // record['Code'] = this.code;
+    console.log('this is the record ',this.continent);
+    // this.continentService.addContinent(record).then(resp => {
+    //   this.continent = "";
+    //   this.code = "";
+    //   console.log(resp);
+    // })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
   onSubmit() {
     console.log(this.continent, this.code);

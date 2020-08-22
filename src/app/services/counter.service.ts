@@ -53,11 +53,11 @@ export class CounterService {
         // return 77;
       }
       getContinents(){
-        return this.firestore.collection('counter').snapshotChanges();        
+        return this.firestore.collection('continents').snapshotChanges();        
         // return this.http.get("https://likes-b1d27.firebaseio.com/continents.json");
       }
-      createContinent(newContinent) {
-        return this.firestore.collection('Students').add(newContinent);
+      addContinent(newContinent) {
+        return this.firestore.collection('continents').add(newContinent);
         // return this.http.put("https://likes-b1d27.firebaseio.com/continents.json", this.test);
       }
   

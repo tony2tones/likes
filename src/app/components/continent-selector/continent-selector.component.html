@@ -1,12 +1,12 @@
 <h3>Pick your counntry</h3>
   <select class="form-control" (change)="changeCountry(event)" [(ngModel)]="tester" >
     <option disabled>Select Continent</option>
-    <option *ngFor="let continent of continents" [ngValue]="continent"> {{ continent.name }}</option>
+    <option *ngFor="let continent of continents" #myDropDownList (value)="continent"> {{ continent.name }}</option>
   </select>
   {{ tester | json }}
   <div class="selected-country">
-    {{ continentSelect | json }}
+    {{ continent | json }}
   </div>
   <div class="btn-footer">
-    <button type="button" (click)="CreateRecord()" class="btn btn-primary">submit</button>
+    <button type="button" (click)="addRecord(continent)" class="btn btn-primary">submit</button>
   </div>

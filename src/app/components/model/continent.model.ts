@@ -4,9 +4,9 @@ export class Continent {
     public code: string) { }
 }
 
-// export interface ContinentsModel {
-//   continent: {
-//     name: "string";
-//     code: "string";
-//   }
-// }
+export interface ContinentsModel {
+  continent: {
+    name: "string";
+    code: "string";
+  }
+}
