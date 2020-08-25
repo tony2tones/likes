@@ -28,7 +28,7 @@ export class ContinentSelectorComponent implements OnInit {
   code: string;
   tester:string;
 
-  @ViewChild('myDropDownList') myDropDownList: ElementRef;
+  // @ViewChild('myDropDownList') myDropDownList: ElementRef;
 
   ngOnInit() {
     this.getContinents();
@@ -49,6 +49,7 @@ export class ContinentSelectorComponent implements OnInit {
 
   onRowClick() {
     console.log('it has been clicked', this.continentSelect);
+    // const selectedValue = this.myDropDownList.nativeElement.value;
 
   }
   //   this.continentService.getContinents().subscribe(
