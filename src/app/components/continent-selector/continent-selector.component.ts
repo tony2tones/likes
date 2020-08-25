@@ -28,8 +28,6 @@ export class ContinentSelectorComponent implements OnInit {
   code: string;
   tester:string;
 
-  // @ViewChild('myDropDownList') myDropDownList: ElementRef;
-
   ngOnInit() {
     this.getContinents();
   }
@@ -42,9 +40,6 @@ export class ContinentSelectorComponent implements OnInit {
 
   changeCountry(event) {
     this.continentSelect = event;
-    console.log('it has been clicked', event);
-    console.log('it has been clicked', this.continentSelect);
-    this.onRowClick();
   }
 
   onRowClick() {
@@ -60,25 +55,25 @@ export class ContinentSelectorComponent implements OnInit {
   //     });
   // }
   getContinents(){
-    this.continentService.getContinents().subscribe(data => console.log('The hooked', data));
+    this.continentService.getContinents().subscribe(data => this.tester);
   }
 
   addRecord() {
     let record = {};
-    // record['Name'] = this.continent.name;
+    record['Name'] = this.tester;
     // record['Code'] = this.code;
-    console.log('this is the record ',this.continent);
-    // this.continentService.addContinent(record).then(resp => {
+    console.log('this is the record ',record);
+    this.continentService.addContinent(record).then(resp => {
     //   this.continent = "";
     //   this.code = "";
-    //   console.log(resp);
-    // })
+      console.log(resp);
+    })
     //   .catch(error => {
     //     console.log(error);
     //   });
   }
   onSubmit() {
-    console.log(this.continent, this.code);
+    console.log(this.continent, this.tester);
   }
 }
 
