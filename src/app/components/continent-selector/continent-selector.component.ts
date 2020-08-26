@@ -73,6 +73,10 @@ export class ContinentSelectorComponent implements OnInit {
     //   });
   }
   onSubmit() {
+    this.continentService.update_countryCount(this.tester.toLocaleLowerCase(), 1);
+    // update_countryCount(recordID,record){
+    //   this.firestore.doc('continents/' + recordID).update(record);
+    // }
     console.log(this.continent, this.tester);
   }
 }

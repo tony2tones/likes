@@ -4,5 +4,5 @@
     <option *ngFor="let continent of continents" (value)="continent"> {{ continent.name }}</option>
   </select>
   <div class="btn-footer">
-    <button type="button" (click)="addRecord(continent)" class="btn btn-primary">submit</button>
+    <button type="button" (click)="onSubmit(continent)" class="btn btn-primary">submit</button>
   </div>

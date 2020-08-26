@@ -60,6 +60,9 @@ export class CounterService {
         return this.firestore.collection('continents').add(newContinent);
         // return this.http.put("https://likes-b1d27.firebaseio.com/continents.json", this.test);
       }
+      update_countryCount(recordID,record){
+        this.firestore.doc('continents/' + recordID.count).update(record);
+      }
   
 }
 
